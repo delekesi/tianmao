@@ -1,0 +1,1 @@
+(function(){function t(t){document.body.appendChild(document.createElement("script")).src=t}if(location.protocol=="http:"){if(!window.Pointman){t("https://g.alicdn.com/secdev/adblk/index.js?v=4")}}t("//g.alicdn.com/secdev/sufei_data/2.0.6/index.js");var n=.001;if(Math.random()<n){document["_linkstat_sample"]=n;t("https://g.alicdn.com/secdev/linkstat/index.js?ver=36")}})();

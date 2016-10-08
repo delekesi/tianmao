@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="function.js"></script>
+	<script>
+     $(function(){
+     	var login=$(".login")[0];
+     	var box=$(".box")[0];
+     	var box1=$(".box1")[0];
+     	var box2=$(".box2")[0];
+     	
+     	var tx=document.documentElement.clientWidth;
+     	var ty=document.documentElement.clientHeight;
+
+     	login.onclick=function(){
+     		box.style.display="block";
+            var loginW=box2.offsetWidth;
+     	    var loginH=box2.offsetHeight;
+     		
+
+     	    box2.style.cssText='left:'+(tx-loginW)/2+'px;top:'+(ty-loginH)/2+'px;'
+     	}
+     	box1.onclick=function(){
+     		box.style.display="none";
+     	}
+     	box2.onmousedown=function(e){
+     		var ev=e||window.event;
+     		var lx=ev.clientX-box2.offsetLeft;
+     		var ly=ev.clientY-box2.offsetTop;
+     		var that=this;
+     		document.onmousemove=function(e){
+     			var ev=e||window.event;
+     			var hx=ev.clientX-lx;
+     			var hy=ev.clientY-ly;
+     			var qq=box.offsetWidth-box2.offsetWidth;
+     			var ww=box.offsetHeight-box2.offsetH0eight;
+     			if(hx<0){hx=0};
+     			if(hy<0){hy=0};
+     			if(hx>qq){hx=qq};
+     			if(hy>ww){hy=ww};
+
+     			that.style.left=hx+"px";
+     			that.style.top=hy+"px";
+
+     		}
+     	}
+     	document.onmouseup=function(){
+     		document.onmousemove=null;
+     	}
+
+     })
+	</script>
+	<style>
+	html,body{
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.login{
+		position: relative;
+	}
+	.box{
+		width: 100%;
+		height:100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		display: none;
+	}
+	.box1{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: #000;
+		opacity: 0.7;
+		left: 0;
+		top: 0;
+			bottom: 0;
+		right: 0;
+		
+	}
+
+	.box2{
+		width: 360px;
+		height: 240px;
+		background-color: yellow;
+		border-radius: 10px;
+		position: absolute;
+	
+
+	}
+
+	</style>
+</head>
+<body>
+<input type="button" value="点我" class="login">
+
+<div class="box">
+	<div class="box1"></div>
+	<div class="box2">
+	
+		<div>
+			<span>账号</span>
+			<input type="text">
+		</div>
+		<div>
+			<span>密码</span>
+			<input type="text">
+		</div>
+		<div>
+			
+			<input type="button" value="登陆">
+		</div>
+</div>
+</div>
+	
+</body>
+</html>
